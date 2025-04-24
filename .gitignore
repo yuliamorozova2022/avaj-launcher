@@ -1,3 +1,9 @@
+*.class
+simulation.txt
+sources.txt
+
+
+
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
