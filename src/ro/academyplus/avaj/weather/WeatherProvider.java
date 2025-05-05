@@ -3,10 +3,10 @@ package ro.academyplus.avaj.weather;
 public class WeatherProvider {
     private static WeatherProvider instance = null;
 
-    // Приватный конструктор для создания синглтона
+    // Private constructor
     private WeatherProvider() {}
 
-    // Метод для получения единственного экземпляра (синглтон)
+    // method for getting a single instance (singleton)
     public static WeatherProvider getProvider() {
         if (instance == null) {
             instance = new WeatherProvider();
@@ -14,10 +14,8 @@ public class WeatherProvider {
         return instance;
     }
 
-    // Метод для генерации погоды на основе координат
+    // method for weather generation based on coordinates
     public String getCurrentWeather(Coordinates coordinates) {
-        // Простой алгоритм для генерации погоды на основе координат.
-        // Например, чем выше координата, тем чаще будет снег
         if (coordinates.getHeight() < 20) {
             return "RAIN";
         } else if (coordinates.getHeight() < 50) {

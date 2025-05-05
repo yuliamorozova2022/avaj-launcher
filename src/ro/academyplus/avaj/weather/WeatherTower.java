@@ -1,7 +1,5 @@
 package ro.academyplus.avaj.weather;
 
-import ro.academyplus.avaj.weather.*;
-
 public class WeatherTower extends Tower {
     public String getWeather(Coordinates coordinates) {
         return WeatherProvider.getProvider().getCurrentWeather(coordinates);
