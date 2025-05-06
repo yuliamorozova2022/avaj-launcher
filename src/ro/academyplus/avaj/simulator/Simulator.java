@@ -7,8 +7,14 @@ public class Simulator {
             System.exit(1);
         }
 
+//        System.out.println("Starting simulation with scenario file: " + scenarioFileName);
+//        Simulation.run(scenarioFileName);
         String scenarioFileName = args[0];
-        System.out.println("Starting simulation with scenario file: " + scenarioFileName);
-        Simulation.run(scenarioFileName);
+        try {
+            Simulation.run(scenarioFileName);
+        } catch (Exception e) {
+            System.err.println("Simulation failed: " + e.getMessage());
+            System.exit(1);
+        }
     }
 }

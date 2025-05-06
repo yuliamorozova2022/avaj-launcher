@@ -15,7 +15,7 @@ public class AircraftFactory {
             case "Helicopter":
                 return new Helicopter(name, coordinates);
             default:
-                System.err.println("Unknown aircraft type: " + type);
+                System.out.println("Unknown aircraft type: " + type);
                 return null;
         }
     }

@@ -8,12 +8,13 @@ public abstract class Aircraft {
     protected Coordinates coordinates;
     private static long idCounter = 0;
 
+    //constructor
     protected Aircraft(String name, Coordinates coordinates) {
         this.id = nextId();
         this.name = name;
         this.coordinates = coordinates;
     }
-
+    // methhod for incrementing of idCounter
     private long nextId() {
         return ++idCounter;
     }

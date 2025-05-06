@@ -4,12 +4,13 @@ import ro.academyplus.avaj.weather.WeatherTower;
 import ro.academyplus.avaj.weather.Coordinates;
 
 public class Helicopter extends Aircraft implements Flyable {
+    //field holds a reference to a WeatherTower instance.
     private WeatherTower weatherTower;
-
+    //constructor
     public Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
     }
-
+    //overriding interface Flyable method
     @Override
     public void updateConditions() {
         String weather = weatherTower.getWeather(coordinates);
@@ -46,7 +47,7 @@ public class Helicopter extends Aircraft implements Flyable {
             System.out.println("Tower says: Helicopter#" + name + "(" + id + ") unregistered from weather tower.");
         }
     }
-
+    //overriding interface Flyable method
     @Override
     public void registerTower(WeatherTower weatherTower) {
         this.weatherTower = weatherTower;
