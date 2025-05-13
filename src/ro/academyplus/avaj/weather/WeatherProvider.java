@@ -1,29 +1,29 @@
 package ro.academyplus.avaj.weather;
 
 public class WeatherProvider {
-    private static WeatherProvider instance = null;
+    // Singleton instance
+    private static final WeatherProvider instance = new WeatherProvider();
+    
+    private final String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
     // Private constructor
     private WeatherProvider() {}
 
     // method for getting a single instance (singleton)
     public static WeatherProvider getProvider() {
-        if (instance == null) {
-            instance = new WeatherProvider();
-        }
         return instance;
     }
 
     // method for weather generation based on coordinates
-    public String getCurrentWeather(Coordinates coordinates) {
-        if (coordinates.getHeight() < 20) {
-            return "RAIN";
-        } else if (coordinates.getHeight() < 50) {
-            return "FOG";
-        } else if (coordinates.getHeight() < 80) {
-            return "SUN";
+    public String getCurrentWeather(Coordinates p_coordinates) {
+        if (p_coordinates.getHeight() < 20) {
+            return weather[0];//"RAIN";
+        } else if (p_coordinates.getHeight() < 50) {
+            return weather[1];//"FOG";
+        } else if (p_coordinates.getHeight() < 80) {
+            return weather[2];//"SUN";
         } else {
-            return "SNOW";
+            return weather[3];//"SNOW";
         }
     }
 }

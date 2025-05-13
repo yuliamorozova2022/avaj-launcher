@@ -7,14 +7,15 @@ import java.util.List;
 public abstract class Tower {
     //list of aircrafts registered as observers
     private List<Flyable> observers = new ArrayList<>();
+    
     //method for registering aircraft in the list of the tower
-    public void register(Flyable flyable) {
-        if (!observers.contains(flyable))
-            observers.add(flyable);
+    public void register(Flyable p_flyable) {
+        if (!observers.contains(p_flyable))
+            observers.add(p_flyable);
     }
     //method for deleting aircraft from the list of the tower
-    public void unregister(Flyable flyable) {
-        observers.remove(flyable);
+    public void unregister(Flyable p_flyable) {
+        observers.remove(p_flyable);
     }
 
     protected void conditionsChanged() {

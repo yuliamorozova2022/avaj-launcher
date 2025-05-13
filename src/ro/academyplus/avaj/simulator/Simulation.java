@@ -55,9 +55,10 @@ public class Simulation {
                 // height check
                 if (height < MIN_HEIGHT || height > MAX_HEIGHT)
                     throw new IllegalArgumentException("Invalid height (" + height + ") for " + name + ". Must be 0–100.");
-
+                // Create coordinates obj
+                Coordinates coordinates = new Coordinates(longitude, latitude, height);
                 // Create and register aircraft
-                Flyable flyable = AircraftFactory.newAircraft(type, name, longitude, latitude, height);
+                Flyable flyable = AircraftFactory.newAircraft(type, name, coordinates);
                 if (flyable == null)
                     throw new IllegalArgumentException("Unknown aircraft type: " + type);
                 flyable.registerTower(weatherTower);

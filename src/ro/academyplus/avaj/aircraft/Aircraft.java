@@ -6,16 +6,11 @@ public abstract class Aircraft {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
-    private static long idCounter = 0;
 
     //constructor
-    protected Aircraft(String name, Coordinates coordinates) {
-        this.id = nextId();
-        this.name = name;
-        this.coordinates = coordinates;
-    }
-    // methhod for incrementing of idCounter
-    private long nextId() {
-        return ++idCounter;
+    protected Aircraft(Long p_id, String p_name, Coordinates p_coordinates) {
+        this.id = p_id;
+        this.name = p_name;
+        this.coordinates = p_coordinates;
     }
 }

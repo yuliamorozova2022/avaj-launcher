@@ -1,9 +1,12 @@
 package ro.academyplus.avaj.simulator;
 
+import java.io.*;
+
 public class Simulator {
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println("Usage: java ro.academyplus.avaj.simulator.Simulator <scenario_file>");
+            Logger.log("Usage: java ro.academyplus.avaj.simulator.Simulator <scenario_file>");
+            Logger.close();
             System.exit(1);
         }
 
@@ -13,8 +16,11 @@ public class Simulator {
         try {
             Simulation.run(scenarioFileName);
         } catch (Exception e) {
-            System.err.println("Simulation failed: " + e.getMessage());
+            Logger.log("Simulation failed: " + e.getMessage());
+            Logger.close();
             System.exit(1);
         }
+        Logger.close();
+    
     }
 }

@@ -2,20 +2,24 @@ package ro.academyplus.avaj.aircraft;
 
 import ro.academyplus.avaj.weather.Coordinates;
 
+import ro.academyplus.avaj.simulator.Logger;
+
 public class AircraftFactory {
     private static long idCounter = 0;
 
-    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
-        Coordinates coordinates = new Coordinates(longitude, latitude, height);
-        switch (type) {
+    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+        long id = ++idCounter;
+        // Coordinates coordinates = new Coordinates(longitude, latitude, height);
+        switch (p_type) {
             case "Baloon":
-                return new Baloon(name, coordinates);
+                return new Baloon(id, p_name, p_coordinates);
             case "JetPlane":
-                return new JetPlane(name, coordinates);
+                return new JetPlane(id, p_name, p_coordinates);
             case "Helicopter":
-                return new Helicopter(name, coordinates);
+                return new Helicopter(id, p_name, p_coordinates);
             default:
-                System.out.println("Unknown aircraft type: " + type);
+                // System.out.println("Unknown aircraft type: " + p_type);
+                Logger.log("Unknown aircraft type: " + p_type);
                 return null;
         }
     }
