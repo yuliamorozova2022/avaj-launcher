@@ -5,7 +5,12 @@ import ro.academyplus.avaj.weather.Coordinates;
 import ro.academyplus.avaj.simulator.Logger;
 
 public class AircraftFactory {
+    // Singleton instance
+    private static final AircraftFactory instance = new AircraftFactory();
     private static long idCounter = 0;
+
+    // Private constructor
+    private AircraftFactory() {}
 
     public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
         long id = ++idCounter;
